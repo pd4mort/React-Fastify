@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   frontend:
     build:
@@ -13,16 +15,11 @@ services:
     ports:
       - 3001:3001
     depends_on:
-      - postgres
-    env_file:
-      - ./backend/.env
+      - db
 
-  postgres:
-    image: postgres:13
-    container_name: postgres
+  db:
+    build:
+      context: ./database
+      dockerfile: docker-compose
     ports:
       - 5432:5432
-    environment:
-      POSTGRES_DB: fastify-prisma-api
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: random
