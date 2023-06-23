@@ -1,14 +1,13 @@
 # Dockerfile backend
-FROM node:16.15.0-alpine
+FROM node:16.13-alpine as builder
 
 WORKDIR /app
 
 COPY package.json ./
 RUN npm install
-RUN npx prisma generate
-RUN npx prisma migrate
-
-COPY . .
+COPY ./prisma prisma
+COPY ./src src
+RUN npm run build
 
 EXPOSE 3001
 

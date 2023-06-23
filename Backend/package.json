@@ -4,7 +4,15 @@
   "description": "API with Node, PRISMA, FASTIFY",
   "main": "index.js",
   "scripts": {
+    "generate": "npx prisma generate",
+    "deploy": "npx prisma migrate deploy",
+    "build": "npm run generate",
     "start": "tsnd --respawn --transpile-only --exit-child src/app.ts"
+    
+    
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   },
   "keywords": [],
   "author": "Pablo Damas Ortega",
