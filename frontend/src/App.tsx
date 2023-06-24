@@ -6,12 +6,12 @@ import Register from './components/register/Register';
 
 const App: React.FC = () => {
   const handleBackToLogin = () => {
-    // Implementa la lógica que desees al volver al formulario de inicio de sesión
   };
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route
         path="/register"

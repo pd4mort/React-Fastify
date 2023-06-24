@@ -51,11 +51,13 @@ const Home: React.FC = () => {
         setIsLoggedIn(true);
       } else {
         setShowLogin(true);
+        setIsLoggedIn(false);
       }
     } catch (error) {
       console.log('Error checking login status:', error);
     }
   };
+  
 
   /**
    * Logout

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 import Register from '../register/Register';
@@ -7,6 +8,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showLoginForm, setShowLoginForm] = useState(true);
+  const navigate = useNavigate();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -16,13 +18,9 @@ const Login: React.FC = () => {
     setPassword(e.target.value);
   };
 
-  /**
-   * Login
-   * @param e 
-   */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+   
     try {
       const response = await axios.post('http://localhost:3001/api/users/login', {
         email,
@@ -31,29 +29,22 @@ const Login: React.FC = () => {
 
       const { accessToken } = response.data;
 
-      // Save token in local storage
       localStorage.setItem('accessToken', accessToken);
 
-      // clean email and pass
       setEmail('');
       setPassword('');
-
-      // not see login form
-      setShowLoginForm(false);
-      window.location.href = ' /Home ';
-      window.location.reload();
+      navigate('/home');
+      window.location.replace('');
     } catch (error) {
       console.log('Error de inicio de sesión:', error);
     }
   };
 
+
   const handleBackToLogin = () => {
     setShowLoginForm(true);
   };
 
-  /**
-   * HTML
-   */
   return (
     <div className="login-container">
       {showLoginForm ? (
