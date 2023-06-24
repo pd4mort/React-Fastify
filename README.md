@@ -56,7 +56,7 @@ This project is licensed under the GNU GPL.
 
 # Contact
 Name: Pablo Damas
-Email: pablodamasor@gmail.com
+/nEmail: pablodamasor@gmail.com
 
 
 Thx for using
