@@ -55,8 +55,8 @@ A Postman collection is attached if you need it.
 This project is licensed under the GNU GPL.
 
 # Contact
-Name: Pablo Damas
-/nEmail: pablodamasor@gmail.com
+### Name: Pablo Damas
+### Email: pablodamasor@gmail.com
 
 
 Thx for using
